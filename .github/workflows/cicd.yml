@@ -1,4 +1,4 @@
-name: CI-CD Hello World
+name: Print File Content CI/CD
 
 on:
   push:
@@ -7,9 +7,13 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  print-file:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
-        run: echo "Hello, World! My GitHub Actions is working!"
+
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+
+      - name: Print hello_world.txt content
+        run: cat hello_world.txt
